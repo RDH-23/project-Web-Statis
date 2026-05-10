@@ -937,7 +937,7 @@ body {
 }
 
 /* --- Area Hasil Pencarian (Kanan) --- */
-.area-hasil {
+.area-hasil-filter {
     flex-grow: 1;
 }
 
@@ -1011,6 +1011,679 @@ body {
     color: var(--text-secondary);
 }
 
+/* ========================================================================= */
+/* CSS HALAMAN DETAIL FILM                                                   */
+/* ========================================================================= */
+.hero-detail-dummy {
+    width: 100%; 
+    height: 45vh; 
+    background-color: var(--bg-section);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-bottom: 1px solid var(--border);
+}
+
+.teks-hero-dummy { 
+    font-size: 80px; 
+    color: #333; 
+    font-weight: bold; 
+}
+
+.detail-konten { 
+    padding: 40px 5% 60px; 
+    max-width: 1100px;
+}
+
+.judul-film-besar { 
+    font-size: 42px; 
+    margin-bottom: 15px; 
+}
+
+.meta-film-detail {
+    display: flex; 
+    gap: 15px; 
+    font-size: 14px; 
+    color: var(--text-secondary);
+    margin-bottom: 25px; 
+    align-items: center; 
+    flex-wrap: wrap;
+}
+
+.skor-cocok { 
+    color: #2ecc71; 
+    font-weight: bold; 
+}
+
+.badge-rating-detail { 
+    border: 1px solid var(--border); 
+    padding: 2px 8px; 
+    border-radius: 4px; 
+}
+
+.grup-aksi-detail { 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 40px; 
+    flex-wrap: wrap; 
+}
+.btn-utama { 
+    background-color: var(--text-main); 
+    color: var(--bg-main); 
+    padding: 10px 24px; 
+    border: none; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    font-size: 15px; 
+    cursor: pointer; 
+}
+.btn-sekunder { 
+    background-color: transparent; 
+    color: var(--text-main); 
+    border: 1px solid var(--border); 
+    padding: 10px 24px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    font-size: 15px; 
+    cursor: pointer; 
+}
+.btn-ikon { 
+    background-color: transparent; 
+    color: var(--text-main); 
+    border: 1px solid var(--border); 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 20px; 
+    cursor: pointer; 
+}
+
+.sinopsis-detail { 
+    font-size: 16px; 
+    line-height: 1.6; 
+    color: #ccc; 
+    margin-bottom: 50px; 
+    max-width: 900px; 
+}
+
+.bagian-sub-detail { 
+    margin-bottom: 50px; 
+}
+.bagian-sub-detail h2 { 
+    font-size: 20px; 
+    margin-bottom: 20px; 
+    border-left: 4px solid var(--primary); 
+    padding-left: 12px; 
+}
+
+/* Scroll Horizontal untuk Pemeran & Rekomendasi */
+.grid-pemeran, .area-rekomendasi-detail {
+    display: flex; 
+    gap: 20px; 
+    overflow-x: auto; 
+    padding-bottom: 15px;
+}
+.grid-pemeran::-webkit-scrollbar, .area-rekomendasi-detail::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* Kartu Aktor */
+.kartu-pemeran { 
+    text-align: center; 
+    text-decoration: none; 
+    color: var(--text-main); 
+    min-width: 100px; 
+}
+.avatar-pemeran-dummy { 
+    width: 90px; 
+    height: 90px; 
+    background-color: var(--bg-section); 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 32px; 
+    color: #555; 
+    margin: 0 auto 12px; 
+    border: 2px solid transparent;
+}
+.kartu-pemeran:hover .avatar-pemeran-dummy { 
+    border-color: var(--primary); 
+}
+
+/* Kartu Film (Menggunakan Class Baru agar tidak bentrok) */
+.kartu-rekomendasi { 
+    width: 150px; 
+    min-width: 150px; 
+    text-decoration: none; 
+    color: var(--text-main); 
+}
+.gambar-rekomendasi-dummy { 
+    width: 100%; 
+    height: 220px; 
+    background-color: var(--bg-section); 
+    border-radius: 8px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 24px; 
+    color: #444; 
+    margin-bottom: 10px; 
+    border: 1px solid var(--border); 
+}
+
+/* Modal Trailer */
+.modal-trailer-bg { 
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.9); 
+    justify-content: center; 
+    align-items: center; 
+}
+.modal-konten { 
+    background-color: var(--bg-main); 
+    border: 1px solid var(--border); 
+    border-radius: 8px; 
+    width: 90%; 
+    max-width: 800px; 
+    padding: 20px; 
+    position: relative; 
+}
+.tutup-modal { 
+    position: absolute; 
+    top: 15px; 
+    right: 20px; 
+    color: var(--text-secondary); 
+    font-size: 28px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+.video-player-dummy { 
+    width: 100%; 
+    height: 400px; 
+    background-color: #000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: var(--text-secondary); 
+    border: 1px solid var(--border); 
+}
+
+
+/* ========================================================================= */
+/* CSS nonton film
+/* ========================================================================= */
+
+/* Container Nonton */
+.container-nonton {
+    padding: 20px 5% 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn-kembali {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.btn-kembali:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+/* Pemutar Video YouTube */
+.kotak-video {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Proporsi video layar lebar standar */
+    background-color: #000;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.kotak-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Informasi di bawah video */
+.info-bawah-video {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.judul-area h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.meta-nonton {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.aksi-nonton {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-aksi-bulat {
+    background-color: var(--bg-section);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-aksi-bulat:hover {
+    background-color: var(--border);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .judul-area h1 { font-size: 22px; }
+    .info-bawah-video { flex-direction: column; }
+    .kontrol-bawah { opacity: 1; /* Selalu tampilkan kontrol di HP */ }
+}
+
+
+/* ========================================================================= */
+/* CSS Cast & Crew                                                           */
+/* ========================================================================= */
+.container-cast {
+    padding: 30px 5% 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.btn-kembali {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.btn-kembali:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+.header-cast {
+    margin-bottom: 30px;
+}
+
+.header-cast span {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-cast h1 {
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+/* Sistem Tab */
+.grup-tab {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+}
+
+.btn-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-tab:hover {
+    color: var(--text-main);
+}
+
+.btn-tab.aktif {
+    color: var(--text-main);
+}
+
+.btn-tab.aktif::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+/* Grid Daftar Orang */
+.konten-tab {
+    display: none; /* Disembunyikan default */
+}
+
+.konten-tab.aktif {
+    display: block; /* Muncul jika punya class aktif */
+}
+
+.grid-orang {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+.kartu-orang {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--bg-section);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.kartu-orang:hover {
+    border-color: var(--border);
+    background-color: #222;
+}
+
+.avatar-orang-dummy {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.nama-orang {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.peran-orang {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .grid-orang { grid-template-columns: repeat(2, 1fr); }
+    .avatar-orang-dummy { width: 80px; height: 80px; font-size: 28px; }
+}
+
+/* ========================================================================= */
+/* CSS KHUSUS KONTEN SERUPA                                                  */
+/* ========================================================================= */
+.container-serupa {
+    padding: 30px 5% 60px;
+}
+
+.btn-kembali {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.btn-kembali:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+.header-serupa {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-serupa h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.grup-tag {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag-alasan {
+    background-color: var(--bg-section);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* Kita gunakan layout grid yang sama dengan katalog daftar film */
+.grid-katalog {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.kartu-film {
+    width: calc(20% - 16px);
+    min-width: 150px;
+    text-decoration: none;
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+.gambar-dummy {
+    width: 100%;
+    height: 250px;
+    background-color: var(--bg-section);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.kartu-film:hover .gambar-dummy {
+    background-color: #222;
+    border-color: var(--primary);
+}
+
+.judul-film {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta-film {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 900px) { .kartu-film { width: calc(25% - 15px); } }
+@media (max-width: 700px) { .kartu-film { width: calc(33.33% - 14px); } }
+@media (max-width: 500px) { .kartu-film { width: calc(50% - 10px); } }
+
+/* ========================================================================= */
+/* CSS KHUSUS PROFIL AKTOR                                                   */
+/* ========================================================================= */
+
+.container-profil-aktor {
+    padding: 30px 5% 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER PROFIL */
+.header-aktor {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.avatar-aktor-besar {
+    width: 180px;
+    height: 180px;
+    background-color: var(--bg-section);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    color: #555;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+}
+
+.info-aktor {
+    flex-grow: 1;
+}
+
+.info-aktor h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.bio-aktor {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.meta-aktor {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.meta-aktor span strong {
+    color: var(--text-main);
+    margin-right: 5px;
+}
+
+/* BAGIAN FILMOGRAFI & TAB */
+.filmografi-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.grup-tab-filmografi {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+}
+
+.btn-tab-film {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-tab-film:hover {
+    color: var(--text-main);
+}
+
+.btn-tab-film.aktif {
+    color: var(--text-main);
+}
+
+.btn-tab-film.aktif::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.konten-tab-filmografi {
+    display: none; /* Disembunyikan default */
+}
+
+.konten-tab-filmografi.aktif {
+    display: block; /* Muncul jika punya class aktif */
+}
+
+/* Responsif Profil Aktor */
+@media (max-width: 768px) {
+    .header-aktor {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    .info-aktor h1 { font-size: 32px; }
+    .meta-aktor { align-items: center; }
+}
+
 /* RESPONSIVE */
 /* @media (max-width: 768px) {
     .header-dashboard { flex-direction: column; align-items: flex-start; }
@@ -1030,3 +1703,4 @@ body {
 @media (max-width: 500px) {
     .kartu-film { width: calc(50% - 10px); } /* 2 kolom */
 }
+

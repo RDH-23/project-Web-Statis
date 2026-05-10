@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Detail Film</title>
+    <link rel="stylesheet" href="../../../assets/restu.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="../dashboard-user/dashboard-user.html" class="logo">PILIH.IN</a>
+            <a href="../halaman-all-film/halaman-all-film-1.html">Katalog</a>
+            <a href="#">About Us</a>
+            <a href="#">Artikel</a>
+            <a href="#">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="#" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <div class="area-utama">
+        <div class="hero-detail-dummy"><div class="teks-hero-dummy">O</div></div>
+
+        <div class="detail-konten">
+            <h1 class="judul-film-besar">Oppenheimer</h1>
+            <div class="meta-film-detail">
+                <span class="skor-cocok">98% Cocok</span>
+                <span>2023</span>
+                <span class="badge-rating-detail">17+</span>
+                <span>3j 0m</span>
+                <span>Drama, Sejarah</span>
+            </div>
+
+            <div class="grup-aksi-detail">
+                <a href="../halaman-nonton/nonton.html" style="text-decoration: none;"><button class="btn-utama">▶ Tonton Sekarang</button></a>
+                <button class="btn-sekunder" onclick="bukaTrailer()">Lihat Trailer</button>
+                <button class="btn-ikon" id="btn-watchlist-detail" onclick="toggleWatchlistDetail()">＋</button>
+                <button class="btn-ikon" id="btn-like-detail" onclick="toggleLikeDetail()">♡</button>
+            </div>
+
+            <div class="sinopsis-detail">
+                <p>Kisah J. Robert Oppenheimer dalam pengembangan bom atom pertama sebagai bagian dari Proyek Manhattan selama Perang Dunia II.</p>
+            </div>
+
+            <div class="bagian-sub-detail">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin-bottom: 0;">Pemeran</h2>
+                    <a href="semua-cast.html" style="color: var(--primary); text-decoration: none; font-size: 14px;">Lihat Semua &rsaquo;</a>
+                </div>
+                <div class="grid-pemeran">
+                    <a href="#" class="kartu-pemeran"><div class="avatar-pemeran-dummy">C</div><div class="nama-pemeran">Cillian M.</div></a>
+                    <a href="#" class="kartu-pemeran"><div class="avatar-pemeran-dummy">E</div><div class="nama-pemeran">Emily B.</div></a>
+                    <a href="#" class="kartu-pemeran"><div class="avatar-pemeran-dummy">M</div><div class="nama-pemeran">Matt D.</div></a>
+                </div>
+            </div>
+
+            <div class="bagian-sub-detail">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin-bottom: 0;">Lebih Banyak Seperti Ini</h2>
+                    <a href="konten-serupa.html" style="color: var(--primary); text-decoration: none; font-size: 14px;">Lihat Semua &rsaquo;</a>
+                </div>
+                <div class="area-rekomendasi-detail">
+                    <a href="#" class="kartu-rekomendasi"><div class="gambar-rekomendasi-dummy">I</div><div class="judul-film">Interstellar</div></a>
+                    <a href="#" class="kartu-rekomendasi"><div class="gambar-rekomendasi-dummy">D</div><div class="judul-film">Dune</div></a>
+                    <a href="#" class="kartu-rekomendasi"><div class="gambar-rekomendasi-dummy">T</div><div class="judul-film">Tenet</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-trailer" class="modal-trailer-bg">
+        <div class="modal-konten">
+            <span class="tutup-modal" onclick="tutupTrailer()">&times;</span>
+            <h2>Trailer: Oppenheimer</h2>
+            <div class="video-player-dummy"><p>▶ Memutar Video Trailer...</p></div>
+        </div>
+    </div>
+
+    <script src="../../../assets/restu.js"></script>
+</body>
+</html>

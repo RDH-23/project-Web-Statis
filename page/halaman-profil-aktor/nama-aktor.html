@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Profil: Cillian Murphy</title>
+    <link rel="stylesheet" href="../../assets/restu.css">
+</head>
+<body>
+
+    <!-- NAVBAR FIXED -->
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="../dashboard-user/dashboard-user.html" class="logo">PILIH.IN</a>
+            <a href="../halaman-all-film/halaman-all-film-1.html">Katalog</a>
+            <a href="about.html">About Us</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="berita.html">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="login.html" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <!-- AREA UTAMA -->
+    <div class="area-utama">
+        
+        <div class="container-profil-aktor">
+            
+            <!-- Tombol Kembali -->
+            <a href="detail-film.html" class="btn-kembali">← Kembali</a>
+
+            <!-- HEADER PROFIL AKTOR -->
+            <div class="header-aktor">
+                <div class="avatar-aktor-besar">C</div>
+                
+                <div class="info-aktor">
+                    <h1>Cillian Murphy</h1>
+                    <div class="bio-aktor">
+                        Aktor asal Irlandia yang dikenal karena perannya dalam film-film independen maupun blockbuster. Ia sering berkolaborasi dengan sutradara Christopher Nolan. Ia memenangkan Academy Award untuk Aktor Terbaik berkat penampilannya sebagai J. Robert Oppenheimer dalam film Oppenheimer (2023).
+                    </div>
+                    <div class="meta-aktor">
+                        <span><strong>Lahir:</strong> 25 Mei 1976</span>
+                        <span><strong>Tempat:</strong> Douglas, County Cork, Irlandia</span>
+                        <span><strong>Profesi:</strong> Aktor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILMOGRAFI SECTION -->
+            <div class="filmografi-section">
+                <h2>Film & Series yang Dibintangi</h2>
+
+                <!-- Navigasi Tab -->
+                <div class="grup-tab-filmografi">
+                    <button class="btn-tab-film aktif" onclick="bukaTabFilmografi('film', this)">Film</button>
+                    <button class="btn-tab-film" onclick="bukaTabFilmografi('series', this)">Series</button>
+                </div>
+
+                <!-- TAB 1: FILM -->
+                <div id="tab-film" class="konten-tab-filmografi aktif">
+                    <div class="grid-katalog">
+                        
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">O</div>
+                            <div class="judul-film">Oppenheimer</div>
+                            <div class="meta-film"><span>2023</span> <span>J. Robert Oppenheimer</span></div>
+                        </a>
+                        
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">A</div>
+                            <div class="judul-film">A Quiet Place Part II</div>
+                            <div class="meta-film"><span>2020</span> <span>Emmett</span></div>
+                        </a>
+
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">D</div>
+                            <div class="judul-film">Dunkirk</div>
+                            <div class="meta-film"><span>2017</span> <span>Shivering Soldier</span></div>
+                        </a>
+
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">I</div>
+                            <div class="judul-film">Inception</div>
+                            <div class="meta-film"><span>2010</span> <span>Robert Fischer</span></div>
+                        </a>
+
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">B</div>
+                            <div class="judul-film">Batman Begins</div>
+                            <div class="meta-film"><span>2005</span> <span>Scarecrow</span></div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- TAB 2: SERIES -->
+                <div id="tab-series" class="konten-tab-filmografi">
+                    <div class="grid-katalog">
+                        
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">P</div>
+                            <div class="judul-film">Peaky Blinders</div>
+                            <div class="meta-film"><span>2013 - 2022</span> <span>Thomas Shelby</span></div>
+                        </a>
+
+                        <a href="detail-film.html" class="kartu-film">
+                            <div class="gambar-dummy">T</div>
+                            <div class="judul-film">The Way We Live Now</div>
+                            <div class="meta-film"><span>2001</span> <span>Paul Montague</span></div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../assets/restu.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 // ========================================================================= 
 // JS halaman all film
 // ========================================================================= 
-function terapkanFilter() {
+function terapkanFilterKatalog() {
 // Mengambil nilai pilihan dari dropdown
 const genreDipilih = document.getElementById("filter-genre").value;
 const tahunDipilih = document.getElementById("filter-tahun").value;
@@ -122,66 +122,66 @@ function kembaliKeMood() {
 // JS halaman filter lanjutan
 // ========================================================================= 
 // Fungsi Utama Filter
-function terapkanFilter() {
-    // 1. Ambil nilai tahun rilis dari radio button yang sedang aktif
-    let tahunDipilih = document.querySelector('input[name="tahun"]:checked').value;
+function terapkanFilterLanjutan() {
+// 1. Ambil nilai tahun rilis dari radio button yang sedang aktif
+let tahunDipilih = document.querySelector('input[name="tahun"]:checked').value;
 
-    // 2. Ambil nilai rating usia dari radio button yang sedang aktif
-    let ratingDipilih = document.querySelector('input[name="rating"]:checked').value;
+// 2. Ambil nilai rating usia dari radio button yang sedang aktif
+let ratingDipilih = document.querySelector('input[name="rating"]:checked').value;
 
-    // 3. Ambil nilai genre dari checkbox (bisa lebih dari satu)
-    let checkboxGenre = document.querySelectorAll('input[name="genre"]:checked');
-    let genreDipilih = [];
-    
-    // Masukkan value checkbox yang tercentang ke dalam array genreDipilih
-    for(let i = 0; i < checkboxGenre.length; i++) {
-        genreDipilih.push(checkboxGenre[i].value);
+// 3. Ambil nilai genre dari checkbox (bisa lebih dari satu)
+let checkboxGenre = document.querySelectorAll('input[name="genre"]:checked');
+let genreDipilih = [];
+
+// Masukkan value checkbox yang tercentang ke dalam array genreDipilih
+for(let i = 0; i < checkboxGenre.length; i++) {
+    genreDipilih.push(checkboxGenre[i].value);
+}
+
+// 4. Proses Filter Kartu Film
+let semuaKartu = document.querySelectorAll(".kartu-film");
+let jumlahCocok = 0;
+
+semuaKartu.forEach(function(kartu) {
+    // Ambil data atribut dari masing-masing kartu
+    let genreKartu = kartu.getAttribute("data-genre");
+    let tahunKartu = parseInt(kartu.getAttribute("data-tahun"));
+    let ratingKartu = kartu.getAttribute("data-rating");
+
+    // Cek syarat 1: Apakah Genre Cocok?
+    let cocokGenre = false;
+    if (genreDipilih.length === 0) {
+        cocokGenre = true; // Jika tidak ada kotak genre yang dicentang, anggap semua cocok
+    } else {
+        if (genreDipilih.includes(genreKartu)) {
+            cocokGenre = true;
+        }
     }
 
-    // 4. Proses Filter Kartu Film
-    let semuaKartu = document.querySelectorAll(".kartu-film");
-    let jumlahCocok = 0;
+    // Cek syarat 2: Apakah Tahun Cocok? 
+    let cocokTahun = false;
+    if (tahunDipilih === "semua") {
+        cocokTahun = true;
+    } else if (tahunDipilih === "atas_2020" && tahunKartu >= 2020) {
+        cocokTahun = true;
+    } else if (tahunDipilih === "bawah_2020" && tahunKartu < 2020) {
+        cocokTahun = true;
+    }
 
-    semuaKartu.forEach(function(kartu) {
-        // Ambil data atribut dari masing-masing kartu
-        let genreKartu = kartu.getAttribute("data-genre");
-        let tahunKartu = parseInt(kartu.getAttribute("data-tahun"));
-        let ratingKartu = kartu.getAttribute("data-rating");
+    // Cek syarat 3: Apakah Rating Cocok?
+    let cocokRating = false;
+    if (ratingDipilih === "semua" || ratingDipilih === ratingKartu) {
+        cocokRating = true;
+    }
 
-        // Cek syarat 1: Apakah Genre Cocok?
-        let cocokGenre = false;
-        if (genreDipilih.length === 0) {
-            cocokGenre = true; // Jika tidak ada kotak genre yang dicentang, anggap semua cocok
-        } else {
-            if (genreDipilih.includes(genreKartu)) {
-                cocokGenre = true;
-            }
-        }
-
-        // Cek syarat 2: Apakah Tahun Cocok? 
-        let cocokTahun = false;
-        if (tahunDipilih === "semua") {
-            cocokTahun = true;
-        } else if (tahunDipilih === "atas_2020" && tahunKartu >= 2020) {
-            cocokTahun = true;
-        } else if (tahunDipilih === "bawah_2020" && tahunKartu < 2020) {
-            cocokTahun = true;
-        }
-
-        // Cek syarat 3: Apakah Rating Cocok?
-        let cocokRating = false;
-        if (ratingDipilih === "semua" || ratingDipilih === ratingKartu) {
-            cocokRating = true;
-        }
-
-        // Keputusan: Jika memenuhi KETIGA syarat di atas, tampilkan. Jika tidak, sembunyikan.
-        if (cocokGenre && cocokTahun && cocokRating) {
-            kartu.style.display = ""; // Gunakan display bawaan CSS
-            jumlahCocok++;
-        } else {
-            kartu.style.display = "none"; // Sembunyikan film
-        }
-    });
+    // Keputusan: Jika memenuhi KETIGA syarat di atas, tampilkan. Jika tidak, sembunyikan.
+    if (cocokGenre && cocokTahun && cocokRating) {
+        kartu.style.display = ""; // Gunakan display bawaan CSS
+        jumlahCocok++;
+    } else {
+        kartu.style.display = "none"; // Sembunyikan film
+    }
+});
 
     // 5. Update teks jumlah
     document.getElementById('judul-hasil').innerText = "Hasil Filter";
@@ -194,6 +194,120 @@ function resetFilterLanjutan() {
     // Kita hanya perlu sedikit jeda waktu sebelum memaksa fungsi filter berjalan lagi.
     setTimeout(function() {
         document.getElementById('judul-hasil').innerText = "Hasil Pencarian";
-        terapkanFilter();
+        terapkanFilterLanjutan();
     }, 10); // Jeda 10 milidetik
+}
+
+// ========================================================================= 
+// JS Halaman Detail Film 
+// ========================================================================= 
+
+function toggleWatchlistDetail() {
+    const btn = document.getElementById("btn-watchlist-detail");
+    if (!btn) return;
+    if (btn.innerText === "＋") {
+        btn.innerText = "✓"; btn.style.backgroundColor = "var(--text-main)"; btn.style.color = "var(--bg-main)";
+    } else {
+        btn.innerText = "＋"; btn.style.backgroundColor = "transparent"; btn.style.color = "var(--text-main)";
+    }
+}
+
+function toggleLikeDetail() {
+    const btn = document.getElementById("btn-like-detail");
+    if (!btn) return;
+    btn.innerText = (btn.innerText === "♡") ? "♥" : "♡";
+    btn.style.color = (btn.innerText === "♥") ? "var(--primary)" : "var(--text-main)";
+}
+
+function bukaTrailer() { 
+    const m = document.getElementById("modal-trailer"); 
+    if (m) m.style.display = "flex"; 
+}
+function tutupTrailer() { 
+    const m = document.getElementById("modal-trailer"); 
+    if (m) m.style.display = "none"; 
+}
+
+
+/* ========================================================================= */
+/* JS Nonton Film
+/* ========================================================================= */
+
+// Fungsi Tombol Watchlist di Halaman Nonton
+function toggleWatchlistNonton() {
+    const btn = document.getElementById("btn-nonton-watchlist");
+    if (!btn) return;
+
+    if (btn.innerText === "＋") {
+        btn.innerText = "✓";
+        btn.style.backgroundColor = "var(--text-main)";
+        btn.style.color = "var(--bg-main)";
+    } else {
+        btn.innerText = "＋";
+        btn.style.backgroundColor = "var(--bg-section)";
+        btn.style.color = "var(--text-main)";
+    }
+}
+
+// Fungsi Tombol Like di Halaman Nonton
+function toggleLikeNonton() {
+    const btn = document.getElementById("btn-nonton-like");
+    if (!btn) return;
+
+    if (btn.innerText === "♡") {
+        btn.innerText = "♥";
+        btn.style.color = "var(--primary)";
+        btn.style.borderColor = "var(--primary)";
+    } else {
+        btn.innerText = "♡";
+        btn.style.color = "var(--text-main)";
+        btn.style.borderColor = "var(--border)";
+    }
+}
+
+/* ========================================================================= */
+/* JS cast & Crew                                                            */
+/* ========================================================================= */
+function bukaTabCast(idTab, elemenTombol) {
+    // Sembunyikan semua konten tab
+    const semuaKonten = document.querySelectorAll('.konten-tab');
+    semuaKonten.forEach(konten => {
+        konten.classList.remove('aktif');
+    });
+
+    // Hapus class 'aktif' dari semua tombol tab
+    const semuaTombol = document.querySelectorAll('.btn-tab');
+    semuaTombol.forEach(tombol => {
+        tombol.classList.remove('aktif');
+    });
+
+    // Tampilkan tab yang diklik dan beri garis bawah (aktif) pada tombolnya
+    document.getElementById('tab-' + idTab).classList.add('aktif');
+    elemenTombol.classList.add('aktif');
+}
+
+/* ========================================================================= */
+/* JS PROFIL AKTOR                                                           */
+/* ========================================================================= */
+
+function bukaTabFilmografi(idTab, elemenTombol) {
+    // [PENGAMAN] Pastikan ada tab yang bisa diakses
+    const tabTarget = document.getElementById('tab-' + idTab);
+    if (!tabTarget) return;
+
+    // Sembunyikan semua konten tab filmografi
+    const semuaKonten = document.querySelectorAll('.konten-tab-filmografi');
+    semuaKonten.forEach(konten => {
+        konten.classList.remove('aktif');
+    });
+
+    // Hapus class 'aktif' dari semua tombol tab
+    const semuaTombol = document.querySelectorAll('.btn-tab-film');
+    semuaTombol.forEach(tombol => {
+        tombol.classList.remove('aktif');
+    });
+
+    // Tampilkan tab yang diklik dan beri garis bawah (aktif) pada tombolnya
+    tabTarget.classList.add('aktif');
+    elemenTombol.classList.add('aktif');
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Nonton: Oppenheimer</title>
+    <link rel="stylesheet" href="../../../assets/restu.css">
+</head>
+<body>
+
+    <!-- NAVBAR FIXED -->
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="../dashboard-user/dashboard-user.html" class="logo">PILIH.IN</a>
+            <a href="../halaman-all-film/halaman-all-film-1.html">Katalog</a>
+            <a href="about.html">About Us</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="berita.html">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="login.html" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <!-- AREA UTAMA -->
+    <div class="area-utama">
+        
+        <div class="container-nonton">
+            
+            <!-- Tombol Kembali -->
+            <a href="detail-film.html" class="btn-kembali">← Kembali ke Detail</a>
+
+            <!-- PEMUTAR VIDEO YOUTUBE -->
+            <div class="kotak-video" id="video-player">
+                <!-- Tag iframe dari YouTube Embed -->
+                <iframe 
+                    src="https://www.youtube.com/embed/uYPbbksJxIg?autoplay=0" 
+                    title="Oppenheimer Trailer" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- INFORMASI DI BAWAH VIDEO -->
+            <div class="info-bawah-video">
+                <div class="judul-area">
+                    <h1>Oppenheimer</h1>
+                    <div class="meta-nonton">
+                        <span>2023</span> &nbsp;•&nbsp; <span>Drama, Sejarah</span> &nbsp;•&nbsp; <span>17+</span>
+                    </div>
+                </div>
+
+                <div class="aksi-nonton">
+                    <button class="btn-aksi-bulat" id="btn-nonton-watchlist" onclick="toggleWatchlistNonton()" title="Tambah ke Watchlist">＋</button>
+                    <button class="btn-aksi-bulat" id="btn-nonton-like" onclick="toggleLikeNonton()" title="Sukai Film">♡</button>
+                    <button class="btn-aksi-bulat" title="Bagikan">➦</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../../assets/restu.js"></script>
+</body>
+</html>

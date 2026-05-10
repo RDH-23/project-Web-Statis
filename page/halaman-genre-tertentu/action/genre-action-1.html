@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Film Action</title>
+    <link rel="stylesheet" href="../../../assets/restu.css">
+</head>
+<body>
+
+    <!-- NAVBAR FIXED -->
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="#" class="logo">PILIH.IN</a>
+            <a href="../../halaman-all-film/halaman-all-film-1.html">Katalog</a>
+            <a href="about.html">About Us</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="berita.html">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="login.html" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <!-- AREA UTAMA -->
+    <div class="area-utama">
+        
+        <!-- BANNER GENRE -->
+        <div class="banner-genre">
+            <h1>Film Action</h1>
+            <p>Kumpulan aksi mendebarkan, ledakan, dan kejar-kejaran tanpa henti. Temukan adrenalinmu di sini.</p>
+        </div>
+
+        <!-- KONTROL FILTER & URUTKAN -->
+        <div class="kontrol-genre">
+            <div class="teks-info" id="info-hasil">Menampilkan 5 film laga</div>
+            
+            <div class="kotak-filter">
+                <select id="urutkan-data">
+                    <option value="terbaru">Terbaru Ditambahkan</option>
+                    <option value="populer">Paling Populer</option>
+                    <option value="rating">Rating Tertinggi</option>
+                </select>
+                
+                <button type="button" onclick="terapkanUrutan()">Terapkan</button>
+            </div>
+        </div>
+
+        <!-- GRID FILM ACTION -->
+        <div class="grid-genre" id="kontainer-film">
+            
+            <a href="detail_film.html" class="kartu-film" data-tanggal="2021-05-10" data-populer="70" data-rating="7.5">
+                <div class="gambar-dummy">L</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2021</span> <span>Action</span></div>
+            </a>
+            
+            <a href="detail_film.html" class="kartu-film" data-tanggal="2023-08-20" data-populer="95" data-rating="8.2">
+                <div class="gambar-dummy">F</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Action</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-tanggal="2022-11-05" data-populer="60" data-rating="7.0">
+                <div class="gambar-dummy">C</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2022</span> <span>Action</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-tanggal="2023-12-01" data-populer="85" data-rating="8.8">
+                <div class="gambar-dummy">N</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Action</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-tanggal="2019-07-15" data-populer="100" data-rating="9.1">
+                <div class="gambar-dummy">S</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2019</span> <span>Action</span></div>
+            </a>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <a href="#">&laquo; Prev</a>
+            <a href="#" class="aktif">1</a>
+            <a href="genre-action-2.html">2</a>
+            <a href="#">3</a>
+            <a href="genre-action-2.html">Next &raquo;</a>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT UNTUK FITUR URUTKAN -->
+    <script src="../../../assets/restu.js"></script>       
+
+</body>
+</html>

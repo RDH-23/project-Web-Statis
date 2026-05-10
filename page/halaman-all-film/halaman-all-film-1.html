@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Katalog Semua Film</title>
+    <link rel="stylesheet" href="../../assets/restu.css">
+</head>
+<body>
+
+    <!-- NAVBAR FIXED -->
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="#" class="logo">PILIH.IN</a>
+            <a href="#" class="aktif">Katalog</a>
+            <a href="about.html">About Us</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="berita.html">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="login.html" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <!-- AREA UTAMA -->
+    <div class="area-utama">
+        
+        <!-- Header & Filter -->
+        <div class="header-katalog">
+            <h1>Katalog Semua Film</h1>
+            
+            <div class="kotak-filter">
+                <select id="filter-genre">
+                    <option value="">Semua Genre</option>
+                    <option value="action">Action</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="romance">Romance</option>
+                </select>
+                <select id="filter-tahun">
+                    <option value="">Semua Tahun</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="lama">Sebelum 2022</option>
+                </select>
+                <button type="button" onclick="terapkanFilter()">Terapkan</button>
+            </div>
+        </div>
+
+        <!-- Teks Informasi -->
+        <p class="teks-info" id="teks-info-katalog">Menampilkan 10 film dari katalog</p>
+
+        <!-- GRID FILM -->
+        <!-- Menambahkan atribut data-genre dan data-tahun untuk filtering JS -->
+        <div class="grid-katalog" id="kontainer-film">
+            
+            <a href="detail_film.html" class="kartu-film" data-genre="horror" data-tahun="lama">
+                <div class="gambar-dummy">I</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2014</span> <span>Horror • 13+</span></div>
+            </a>
+            
+            <a href="detail_film.html" class="kartu-film" data-genre="horror" data-tahun="lama">
+                <div class="gambar-dummy">T</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2015</span> <span>Horror</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="drama" data-tahun="lama">
+                <div class="gambar-dummy">C</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>1988</span> <span>Drama</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="drama" data-tahun="2023">
+                <div class="gambar-dummy">O</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Drama</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="action" data-tahun="2024">
+                <div class="gambar-dummy">D</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2024</span> <span>Action</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="comedy" data-tahun="2023">
+                <div class="gambar-dummy">P</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Comedy</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="action" data-tahun="2023">
+                <div class="gambar-dummy">K</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Action</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="thriller" data-tahun="2023">
+                <div class="gambar-dummy">S</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Drama</span></div>
+            </a>
+            
+            <a href="detail_film.html" class="kartu-film" data-genre="romance" data-tahun="2023">
+                <div class="gambar-dummy">P</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Romance</span></div>
+            </a>
+
+            <a href="detail_film.html" class="kartu-film" data-genre="comedy" data-tahun="2023">
+                <div class="gambar-dummy">T</div>
+                <div class="judul-film">JUDUL FILM</div>
+                <div class="meta-film"><span>2023</span> <span>Comedy</span></div>
+            </a>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <a href="#">&laquo; Prev</a>
+            <a href="#" class="aktif">1</a>
+            <a href="../halaman-all-film/halaman-all-film-2.html">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="../halaman-all-film/halaman-all-film-2.html">Next &raquo;</a>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT UNTUK FITUR FILTER DUMMY -->
+    <script src="../../assets/restu.js"></script>
+</body>
+</html>

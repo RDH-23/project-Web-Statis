@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Filter Lanjutan</title>
+    <link rel="stylesheet" href="../../assets/restu.css">
+</head>
+<body>
+
+    <!-- NAVBAR FIXED -->
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="dashboard_user.html" class="logo">PILIH.IN</a>
+            <a href="daftar_film.html">Katalog</a>
+            <a href="about.html">About Us</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="berita.html">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="login.html" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA (KIRI: FILTER, KANAN: HASIL) -->
+    <div class="container-utama">
+        
+        <!-- SIDEBAR FILTER -->
+        <div class="sidebar-filter">
+            <h2>Filter Lanjutan</h2>
+            
+            <form id="formFilter">
+                <!-- Filter Genre (Checkbox) -->
+                <div class="grup-filter">
+                    <h3>Genre</h3>
+                    <label class="opsi-filter"><input type="checkbox" name="genre" value="action"> Action</label>
+                    <label class="opsi-filter"><input type="checkbox" name="genre" value="comedy"> Comedy</label>
+                    <label class="opsi-filter"><input type="checkbox" name="genre" value="drama"> Drama</label>
+                    <label class="opsi-filter"><input type="checkbox" name="genre" value="horror"> Horror</label>
+                    <label class="opsi-filter"><input type="checkbox" name="genre" value="romance"> Romance</label>
+                </div>
+
+                <!-- Filter Tahun Rilis (Radio) -->
+                <div class="grup-filter">
+                    <h3>Tahun Rilis</h3>
+                    <label class="opsi-filter"><input type="radio" name="tahun" value="semua" checked> Semua Tahun</label>
+                    <label class="opsi-filter"><input type="radio" name="tahun" value="atas_2020"> 2020 ke Atas</label>
+                    <label class="opsi-filter"><input type="radio" name="tahun" value="bawah_2020"> 2020 ke Bawah</label>
+                </div>
+
+                <!-- Filter Rating Usia (Radio) -->
+                <div class="grup-filter">
+                    <h3>Rating Usia</h3>
+                    <label class="opsi-filter"><input type="radio" name="rating" value="semua" checked> Semua Umur</label>
+                    <label class="opsi-filter"><input type="radio" name="rating" value="13"> 13+</label>
+                    <label class="opsi-filter"><input type="radio" name="rating" value="17"> 17+</label>
+                    <label class="opsi-filter"><input type="radio" name="rating" value="21"> 21+</label>
+                </div>
+
+                <!-- Tombol Aksi -->
+                <div class="grup-tombol">
+                    <!-- Memanggil fungsi terapkanFilter() di JS -->
+                    <button type="button" class="btn-terapkan" onclick="terapkanFilter()">Terapkan Filter</button>
+                    <!-- Type reset untuk membersihkan form, lalu jalankan fungsi JS untuk reset data -->
+                    <button type="reset" class="btn-reset" onclick="resetFilterLanjutan()">Reset</button> 
+                </div>
+            </form>
+        </div>
+
+        <!-- AREA HASIL PENCARIAN -->
+        <div class="area-hasil">
+            <div class="header-hasil">
+                <h1 id="judul-hasil">Hasil Pencarian</h1>
+                <span id="teks-jumlah">Menampilkan 10 film</span>
+            </div>
+
+            <!-- Atribut data-genre, data-tahun, dan data-rating digunakan oleh JS -->
+            <div class="grid-hasil" id="kontainer-film">
+                
+                <a href="detail_film.html" class="kartu-film" data-genre="drama" data-tahun="2014" data-rating="13">
+                    <div class="gambar-dummy">I</div>
+                    <div class="judul-film">Interstellar</div>
+                    <div class="meta-film"><span>Drama</span> <span>2014 • 13+</span></div>
+                </a>
+                
+                <a href="detail_film.html" class="kartu-film" data-genre="drama" data-tahun="2023" data-rating="17">
+                    <div class="gambar-dummy">O</div>
+                    <div class="judul-film">Oppenheimer</div>
+                    <div class="meta-film"><span>Drama</span> <span>2023 • 17+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="comedy" data-tahun="2023" data-rating="21">
+                    <div class="gambar-dummy">P</div>
+                    <div class="judul-film">Poor Things</div>
+                    <div class="meta-film"><span>Comedy</span> <span>2023 • 21+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="comedy" data-tahun="1995" data-rating="semua">
+                    <div class="gambar-dummy">T</div>
+                    <div class="judul-film">Toy Story</div>
+                    <div class="meta-film"><span>Comedy</span> <span>1995 • SU</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="action" data-tahun="2024" data-rating="13">
+                    <div class="gambar-dummy">D</div>
+                    <div class="judul-film">Dune: Part Two</div>
+                    <div class="meta-film"><span>Action</span> <span>2024 • 13+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="action" data-tahun="2021" data-rating="13">
+                    <div class="gambar-dummy">L</div>
+                    <div class="judul-film">Lens Flare</div>
+                    <div class="meta-film"><span>Action</span> <span>2021 • 13+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="romance" data-tahun="2023" data-rating="13">
+                    <div class="gambar-dummy">P</div>
+                    <div class="judul-film">Past Lives</div>
+                    <div class="meta-film"><span>Romance</span> <span>2023 • 13+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="horror" data-tahun="2013" data-rating="17">
+                    <div class="gambar-dummy">C</div>
+                    <div class="judul-film">The Conjuring</div>
+                    <div class="meta-film"><span>Horror</span> <span>2013 • 17+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="action" data-tahun="2019" data-rating="13">
+                    <div class="gambar-dummy">S</div>
+                    <div class="judul-film">Space Guardian</div>
+                    <div class="meta-film"><span>Action</span> <span>2019 • 13+</span></div>
+                </a>
+
+                <a href="detail_film.html" class="kartu-film" data-genre="horror" data-tahun="2018" data-rating="13">
+                    <div class="gambar-dummy">Q</div>
+                    <div class="judul-film">A Quiet Place</div>
+                    <div class="meta-film"><span>Horror</span> <span>2018 • 13+</span></div>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT UNTUK FITUR FILTER LANJUTAN -->
+    <script>
+        // Fungsi Utama Filter
+        function terapkanFilter() {
+            // 1. Ambil nilai tahun rilis dari radio button yang sedang aktif
+            let tahunDipilih = document.querySelector('input[name="tahun"]:checked').value;
+
+            // 2. Ambil nilai rating usia dari radio button yang sedang aktif
+            let ratingDipilih = document.querySelector('input[name="rating"]:checked').value;
+
+            // 3. Ambil nilai genre dari checkbox (bisa lebih dari satu)
+            let checkboxGenre = document.querySelectorAll('input[name="genre"]:checked');
+            let genreDipilih = [];
+            
+            // Masukkan value checkbox yang tercentang ke dalam array genreDipilih
+            for(let i = 0; i < checkboxGenre.length; i++) {
+                genreDipilih.push(checkboxGenre[i].value);
+            }
+
+            // 4. Proses Filter Kartu Film
+            let semuaKartu = document.querySelectorAll(".kartu-film");
+            let jumlahCocok = 0;
+
+            semuaKartu.forEach(function(kartu) {
+                // Ambil data atribut dari masing-masing kartu
+                let genreKartu = kartu.getAttribute("data-genre");
+                let tahunKartu = parseInt(kartu.getAttribute("data-tahun"));
+                let ratingKartu = kartu.getAttribute("data-rating");
+
+                // Cek syarat 1: Apakah Genre Cocok?
+                let cocokGenre = false;
+                if (genreDipilih.length === 0) {
+                    cocokGenre = true; // Jika tidak ada kotak genre yang dicentang, anggap semua cocok
+                } else {
+                    if (genreDipilih.includes(genreKartu)) {
+                        cocokGenre = true;
+                    }
+                }
+
+                // Cek syarat 2: Apakah Tahun Cocok? 
+                let cocokTahun = false;
+                if (tahunDipilih === "semua") {
+                    cocokTahun = true;
+                } else if (tahunDipilih === "atas_2020" && tahunKartu >= 2020) {
+                    cocokTahun = true;
+                } else if (tahunDipilih === "bawah_2020" && tahunKartu < 2020) {
+                    cocokTahun = true;
+                }
+
+                // Cek syarat 3: Apakah Rating Cocok?
+                let cocokRating = false;
+                if (ratingDipilih === "semua" || ratingDipilih === ratingKartu) {
+                    cocokRating = true;
+                }
+
+                // Keputusan: Jika memenuhi KETIGA syarat di atas, tampilkan. Jika tidak, sembunyikan.
+                if (cocokGenre && cocokTahun && cocokRating) {
+                    kartu.style.display = ""; // Gunakan display bawaan CSS
+                    jumlahCocok++;
+                } else {
+                    kartu.style.display = "none"; // Sembunyikan film
+                }
+            });
+
+            // 5. Update teks jumlah
+            document.getElementById('judul-hasil').innerText = "Hasil Filter";
+            document.getElementById('teks-jumlah').innerText = "Menampilkan " + jumlahCocok + " film";
+        }
+
+        // Fungsi Reset Filter
+        function resetFilterLanjutan() {
+            // Karena tombol punya tipe "reset", form HTML akan otomatis mengosongkan diri.
+            // Kita hanya perlu sedikit jeda waktu sebelum memaksa fungsi filter berjalan lagi.
+            setTimeout(function() {
+                document.getElementById('judul-hasil').innerText = "Hasil Pencarian";
+                terapkanFilter();
+            }, 10); // Jeda 10 milidetik
+        }
+    </script>
+
+</body>
+</html>

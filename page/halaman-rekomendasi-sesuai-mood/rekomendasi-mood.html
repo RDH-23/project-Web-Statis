@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PILIH.IN - Rekomendasi Mood</title>
+    <!-- Pastikan path ke restu.css sudah benar -->
     <link rel="stylesheet" href="../../assets/restu.css">
 </head>
 <body>
 
-    <!-- NAVBAR FIXED -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-kanan">
-            <a href="#" class="logo">PILIH.IN</a>
+            <a href="../dashboard-user/dashboard-user.html" class="logo">PILIH.IN</a>
             <a href="../halaman-all-film/halaman-all-film-1.html">Katalog</a>
             <a href="about.html">About Us</a>
             <a href="artikel.html">Artikel</a>
@@ -36,86 +37,40 @@
             </div>
 
             <div class="grid-mood">
-                <div class="kartu-mood mood-santai" onclick="pilihMood('Santai')">
+                <!-- Sekarang menggunakan tag <a> dengan href menuju halaman khusus -->
+                <a href="mood-santai.html" class="kartu-mood mood-santai">
                     <div class="ikon-mood">☕</div>
                     <div class="teks-mood">Santai</div>
-                </div>
+                </a>
 
-                <div class="kartu-mood mood-tegang" onclick="pilihMood('Tegang')">
+                <a href="mood-tegang.html" class="kartu-mood mood-tegang">
                     <div class="ikon-mood">🔪</div>
                     <div class="teks-mood">Tegang</div>
-                </div>
+                </a>
 
-                <div class="kartu-mood mood-lucu" onclick="pilihMood('Lucu')">
+                <a href="mood-lucu.html" class="kartu-mood mood-lucu">
                     <div class="ikon-mood">😂</div>
                     <div class="teks-mood">Lucu</div>
-                </div>
+                </a>
 
-                <div class="kartu-mood mood-sedih" onclick="pilihMood('Sedih')">
+                <a href="mood-sedih.html" class="kartu-mood mood-sedih">
                     <div class="ikon-mood">🌧️</div>
                     <div class="teks-mood">Sedih</div>
-                </div>
+                </a>
 
-                <div class="kartu-mood mood-semangat" onclick="pilihMood('Semangat')">
+                <a href="mood-semangat.html" class="kartu-mood mood-semangat">
                     <div class="ikon-mood">🔥</div>
                     <div class="teks-mood">Semangat</div>
-                </div>
+                </a>
 
-                <div class="kartu-mood mood-romantis" onclick="pilihMood('Romantis')">
+                <a href="mood-romantis.html" class="kartu-mood mood-romantis">
                     <div class="ikon-mood">💖</div>
                     <div class="teks-mood">Romantis</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- halaman hasil mood -->
-        <div id="area-hasil" class="area-hasil">
-            
-            <!-- Tombol Kembali -->
-            <button class="btn-kembali" onclick="kembaliKeMood()">← Kembali Pilih Mood</button>
-            
-            <h2 id="judul-hasil">Rekomendasi untuk mood: [Nama Mood]</h2>
-            <p id="deskripsi-hasil" class="deskripsi-hasil">Deskripsi dinamis</p>
-            
-            <div class="grid-film">
-                
-                <a href="detail_film.html" class="kartu-film">
-                    <div class="gambar-dummy">P</div>
-                    <div class="judul-film">JUDUL FILM</div>
-                    <div class="meta-film"><span>2023</span> <span>Rekomendasi</span></div>
                 </a>
-                
-                <a href="detail_film.html" class="kartu-film">
-                    <div class="gambar-dummy">L</div>
-                    <div class="judul-film">JUDUL FILM</div>
-                    <div class="meta-film"><span>2021</span> <span>Rekomendasi</span></div>
-                </a>
-
-                <a href="detail_film.html" class="kartu-film">
-                    <div class="gambar-dummy">S</div>
-                    <div class="judul-film">JUDUL FILM</div>
-                    <div class="meta-film"><span>2019</span> <span>Rekomendasi</span></div>
-                </a>
-
-                <a href="detail_film.html" class="kartu-film">
-                    <div class="gambar-dummy">C</div>
-                    <div class="judul-film">JUDUL FILM</div>
-                    <div class="meta-film"><span>1988</span> <span>Rekomendasi</span></div>
-                </a>
-                
-                <a href="detail_film.html" class="kartu-film">
-                    <div class="gambar-dummy">N</div>
-                    <div class="judul-film">JUDUL FILM</div>
-                    <div class="meta-film"><span>2023</span> <span>Rekomendasi</span></div>
-                </a>
-
             </div>
         </div>
 
     </div>
-
-    <!-- JAVASCRIPT UNTUK INTERAKSI MOOD -->
-    <script src="../../assets/restu.js"></script>
 
 </body>
 </html>

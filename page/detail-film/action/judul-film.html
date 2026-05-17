@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PILIH.IN - Detail Film</title>
+    <title>PILIH.IN - Detail Film: Oppenheimer</title>
+    <!-- CSS Utama yang memuat Navbar, Footer, dan Desain Kartu Film -->
     <link rel="stylesheet" href="../../../assets/restu.css">
 </head>
 <body>
 
+    <!-- NAVBAR FIXED -->
     <nav class="navbar">
         <div class="nav-kanan">
             <a href="../dashboard-user/dashboard-user.html" class="logo">PILIH.IN</a>
@@ -21,65 +23,124 @@
                 <div class="avatar">P</div>
                 <span class="nama-pengguna">Pengguna</span>
             </div>
-            <a href="#" class="btn-keluar">Keluar</a>
+            <a href="login.html" class="btn-keluar">Keluar</a>
         </div>
     </nav>
 
+    <!-- AREA UTAMA -->
     <div class="area-utama">
-        <div class="hero-detail-dummy"><div class="teks-hero-dummy">O</div></div>
+        
+        <!-- BANNER GAMBAR HERO -->
+        <div class="hero-detail">
+            <img src="../../../assets/img/poster-film/top_gun_maverick.png" alt="top gun" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80'">
+            <div class="hero-gradient"></div>
+        </div>
 
         <div class="detail-konten">
-            <h1 class="judul-film-besar">Oppenheimer</h1>
+            
+            <h1 class="judul-film-besar">Top Gun: Maverick</h1>
+            
             <div class="meta-film-detail">
-                <span class="skor-cocok">98% Cocok</span>
-                <span>2023</span>
-                <span class="badge-rating-detail">17+</span>
+                <span>2022</span>
+                <span class="badge-rating-detail">13+</span>
                 <span>3j 0m</span>
-                <span>Drama, Sejarah</span>
+                <span>Action</span>
             </div>
 
             <div class="grup-aksi-detail">
                 <a href="../halaman-nonton/nonton.html" style="text-decoration: none;"><button class="btn-utama">▶ Tonton Sekarang</button></a>
                 <button class="btn-sekunder" onclick="bukaTrailer()">Lihat Trailer</button>
-                <button class="btn-ikon" id="btn-watchlist-detail" onclick="toggleWatchlistDetail()">＋</button>
-                <button class="btn-ikon" id="btn-like-detail" onclick="toggleLikeDetail()">♡</button>
+                <button class="btn-ikon" id="btn-watchlist-detail" onclick="toggleWatchlistDetail()" title="Tambah ke Watchlist">＋</button>
+                <button class="btn-ikon" id="btn-like-detail" onclick="toggleLikeDetail()" title="Sukai">♡</button>
             </div>
 
             <div class="sinopsis-detail">
-                <p>Kisah J. Robert Oppenheimer dalam pengembangan bom atom pertama sebagai bagian dari Proyek Manhattan selama Perang Dunia II.</p>
+                <p>Setelah lebih dari tiga puluh tahun mengabdi sebagai salah satu penerbang top Angkatan Laut, Pete Mitchell kembali melatih lulusan elit untuk sebuah misi khusus yang sangat berbahaya dan menuntut pengorbanan tingkat tinggi.</p>
             </div>
 
+            <!-- BAGIAN PEMERAN (DENGAN FOTO) -->
             <div class="bagian-sub-detail">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h2 style="margin-bottom: 0;">Pemeran</h2>
-                    <a href="semua-cast.html" style="color: var(--primary); text-decoration: none; font-size: 14px;">Lihat Semua &rsaquo;</a>
+                <!-- Class 'header-bagian' baru agar kode tidak panjang -->
+                <div class="header-bagian">
+                    <h2>Pemeran</h2>
+                    <a href="semua-cast.html">Lihat Semua &rsaquo;</a>
                 </div>
                 <div class="grid-pemeran">
-                    <a href="#" class="kartu-pemeran"><div class="avatar-pemeran-dummy">C</div><div class="nama-pemeran">Cillian M.</div></a>
-                    <a href="#" class="kartu-pemeran"><div class="avatar-pemeran-dummy">E</div><div class="nama-pemeran">Emily B.</div></a>
-                    <a href="#" class="kartu-pemeran"><div class="avatar-pemeran-dummy">M</div><div class="nama-pemeran">Matt D.</div></a>
+                    
+                    <a href="profil-aktor.html" class="kartu-pemeran">
+                        <img src="../../assets/aktor-cillian.jpg" alt="Cillian Murphy" class="avatar-pemeran" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&q=80'">
+                        <div class="nama-pemeran">Cillian M.</div>
+                        <div class="peran-pemeran">MC</div>
+                    </a>
+                    
+                    <a href="profil-aktor.html" class="kartu-pemeran">
+                        <img src="../../assets/aktor-emily.jpg" alt="Emily Blunt" class="avatar-pemeran" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80'">
+                        <div class="nama-pemeran">Emily B.</div>
+                        <div class="peran-pemeran">Kitty</div>
+                    </a>
+
+                    <a href="profil-aktor.html" class="kartu-pemeran">
+                        <img src="../../assets/aktor-matt.jpg" alt="Matt Damon" class="avatar-pemeran" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80'">
+                        <div class="nama-pemeran">Matt D.</div>
+                        <div class="peran-pemeran">Groves</div>
+                    </a>
+
                 </div>
             </div>
 
+            <!-- BAGIAN FILM SERUPA -->
             <div class="bagian-sub-detail">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h2 style="margin-bottom: 0;">Lebih Banyak Seperti Ini</h2>
-                    <a href="konten-serupa.html" style="color: var(--primary); text-decoration: none; font-size: 14px;">Lihat Semua &rsaquo;</a>
+                <!-- Class 'header-bagian' baru agar kode tidak panjang -->
+                <div class="header-bagian">
+                    <h2>Lebih Banyak Seperti Ini</h2>
+                    <a href="konten-serupa.html">Lihat Semua &rsaquo;</a>
                 </div>
-                <div class="area-rekomendasi-detail">
-                    <a href="#" class="kartu-rekomendasi"><div class="gambar-rekomendasi-dummy">I</div><div class="judul-film">Interstellar</div></a>
-                    <a href="#" class="kartu-rekomendasi"><div class="gambar-rekomendasi-dummy">D</div><div class="judul-film">Dune</div></a>
-                    <a href="#" class="kartu-rekomendasi"><div class="gambar-rekomendasi-dummy">T</div><div class="judul-film">Tenet</div></a>
+                
+                <div class="baris-film">
+                    
+                    <a href="detail_film.html" class="kartu-film">
+                        <div class="bungkus-poster">
+                            <img src="../../assets/poster-interstellar.jpg" alt="Interstellar" class="poster-film" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=300&q=80'">
+                            <div class="overlay-play"><span class="ikon-play">▶</span></div>
+                        </div>
+                        <div class="judul-film">Interstellar</div>
+                        <div class="meta-film-lengkap">
+                            <div class="meta-baris"><span>Sci-Fi</span><span>2014</span></div>
+                            <div class="meta-baris"><span class="badge-usia">13+</span><span class="rating-bintang">★ 8.6</span></div>
+                        </div>
+                    </a>
+                    
+                    <a href="detail_film.html" class="kartu-film">
+                        <div class="bungkus-poster">
+                            <img src="../../assets/poster-dune.jpg" alt="Dune" class="poster-film" onerror="this.src='https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=300&q=80'">
+                            <div class="overlay-play"><span class="ikon-play">▶</span></div>
+                        </div>
+                        <div class="judul-film">Dune</div>
+                        <div class="meta-film-lengkap">
+                            <div class="meta-baris"><span>Sci-Fi</span><span>2021</span></div>
+                            <div class="meta-baris"><span class="badge-usia">13+</span><span class="rating-bintang">★ 8.0</span></div>
+                        </div>
+                    </a>
+
                 </div>
             </div>
+
         </div>
     </div>
 
+    <!-- MODAL TRAILER MENGGUNAKAN YOUTUBE EMBED -->
     <div id="modal-trailer" class="modal-trailer-bg">
         <div class="modal-konten">
             <span class="tutup-modal" onclick="tutupTrailer()">&times;</span>
-            <h2>Trailer: Oppenheimer</h2>
-            <div class="video-player-dummy"><p>▶ Memutar Video Trailer...</p></div>
+            <h2 style="margin-bottom: 15px; padding-right: 30px;">Trailer: Top Gun:Maverick</h2>
+            <div class="video-player-dummy">
+                <iframe 
+                    id="iframe-trailer" 
+                    src="https://archive.org/embed/dailymotion-x7fck5v" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
 

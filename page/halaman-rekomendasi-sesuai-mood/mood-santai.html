@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PILIH.IN - Mood Santai</title>
+    <!-- Pastikan path ke restu.css sudah benar -->
+    <link rel="stylesheet" href="../../assets/restu.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-kanan">
+            <a href="../dashboard-user/dashboard-user.html" class="logo">PILIH.IN</a>
+            <a href="../halaman-all-film/halaman-all-film-1.html">Katalog</a>
+            <a href="about.html">About Us</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="berita.html">Berita</a>
+        </div>
+        <div class="nav-kiri">
+            <div class="profil-wrapper">
+                <div class="avatar">P</div>
+                <span class="nama-pengguna">Pengguna</span>
+            </div>
+            <a href="login.html" class="btn-keluar">Keluar</a>
+        </div>
+    </nav>
+
+    <!-- AREA UTAMA -->
+    <div class="area-utama">
+        
+        <div class="container-hasil-mood">
+            
+            <!-- Tombol Kembali -->
+            <a href="rekomendasi-mood.html" class="btn-kembali">← Kembali Pilih Mood</a>
+            
+            <!-- Header Halaman -->
+            <div class="header-hasil-mood">
+                <h2>Rekomendasi untuk mood: Santai ☕</h2>
+                <p class="deskripsi-hasil">Waktunya rileks! Berikut adalah film-film ringan yang cocok menemanimu bersantai.</p>
+            </div>
+            
+            <!-- GRID FILM (Memakai class yang ada di restu.css untuk katalog) -->
+            <div class="grid-katalog">
+                
+                <!-- FILM 1 -->
+                <a href="detail_film.html" class="kartu-film" data-genre="action" data-tahun="2022" data-tanggal="2022-01-01" data-populer="70" data-rating="8.3">
+                    <div class="bungkus-poster">
+                        <img src="../../assets/img/top_gun_maverick.png" alt="Top Gun" class="poster-film" >
+                        <div class="overlay-play">
+                            <span class="ikon-play">▶</span>
+                        </div>
+                    </div>
+                    <div class="judul-film">Top Gun: Maverick</div>
+                    <div class="meta-film-lengkap">
+                        <div class="meta-baris">
+                            <span>Action</span>
+                            <span>2022</span>
+                        </div>
+                        <div class="meta-baris">
+                            <span class="badge-usia">13+</span>
+                            <span class="rating-bintang">★ 8.3</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
